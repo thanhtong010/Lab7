@@ -5,6 +5,11 @@ const setState = router.setState;
 
 // Make sure you register your service worker here too
 
+// On-click event listener for clicking on settings
+document.querySelector('img').addEventListener('click', function() {
+  // TODO
+})
+
 document.addEventListener('DOMContentLoaded', () => {
   fetch('https://cse110lab6.herokuapp.com/entries')
     .then(response => response.json())

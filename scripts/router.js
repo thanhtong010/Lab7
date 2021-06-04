@@ -35,4 +35,13 @@ router.setState = function() {
    *    1. You may add as many helper functions in this file as you like
    *    2. You may modify the parameters of setState() as much as you like
    */
+
+  let heading 
+
+  // Check if the location's hash is at settings
+  if (location.hash == '#settings') {
+    heading = document.querySelector('h1')
+    heading.innerHTML = 'Settings'
+    console.log("Hello")
+  }
 }
