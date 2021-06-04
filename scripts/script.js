@@ -7,7 +7,6 @@ const setState = router.setState;
 
 // On-click event listener for clicking on settings
 document.querySelector('img').addEventListener('click', function() {
-  // TODO
   history.pushState(null, 'settings', '#settings')
   setState()
 })

@@ -47,10 +47,18 @@ router.setState = function() {
     document.querySelector('body').classList.add('settings')
     console.log('Changed to settings body')
   }
+  // Go back to origin page
   else if (location.hash == '') {
     heading = document.querySelector('h1')
     heading.innerHTML = 'Journal Entries'
     document.querySelector('body').classList.remove('settings', 'single-entry')
     console.log('Changed to journal entries body')
+  }
+  // Clicked on an entry
+  else {
+    heading = document.querySelector('h1')
+    heading.innerHTML = 'Entry'
+    document.querySelector('body').classList.remove('settings')
+    document.querySelector('body').classList.add('single-entry')
   }
 }
