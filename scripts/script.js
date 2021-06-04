@@ -24,13 +24,29 @@ window.addEventListener('popstate', function(event) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Used to number the entries
+  let i = 1
   fetch('https://cse110lab6.herokuapp.com/entries')
     .then(response => response.json())
     .then(entries => {
       entries.forEach(entry => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
+        newPost.num = i;
         document.querySelector('main').appendChild(newPost);
+        i++;
+        // On-click event listener when clicking on a specific entry
+        newPost.addEventListener('click', function() {
+          console.log('in query')
+          // location.hash = '#entry' + i.toString()
+          let num = newPost.num.toString()
+          let hash = '#entry' + num
+          history.pushState(null, 'Entry', hash)
+          setState()
+        })
       });
     });
 });
+
+
+

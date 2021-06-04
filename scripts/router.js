@@ -56,8 +56,10 @@ router.setState = function() {
   }
   // Clicked on an entry
   else {
+    // let num = location.hash.charAt(location.hash.length()-1)
+    console.log(location.hash)
     heading = document.querySelector('h1')
-    heading.innerHTML = 'Entry'
+    // heading.innerHTML = 'Entry ' + num
     document.querySelector('body').classList.remove('settings')
     document.querySelector('body').classList.add('single-entry')
   }
