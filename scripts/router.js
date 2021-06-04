@@ -42,6 +42,9 @@ router.setState = function() {
   if (location.hash == '#settings') {
     heading = document.querySelector('h1')
     heading.innerHTML = 'Settings'
-    console.log("Hello")
+    // const style = document.createElement('style')
+    // style.body = 'body.settings'
+    document.querySelector('body').classList.add('settings')
+    console.log('Changed to settings body')
   }
 }
