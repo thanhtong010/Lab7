@@ -12,6 +12,18 @@ document.querySelector('img').addEventListener('click', function() {
   setState()
 })
 
+// On-click event listener for clicking on header (goes back to journal entries)
+document.querySelector('h1').addEventListener('click', function() {
+  location.hash = ''
+  setState()
+})
+
+// Popstate event listener when clicking the back button
+window.addEventListener('popstate', function(event) {
+  console.log('popstate fired!');
+  setState()
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   fetch('https://cse110lab6.herokuapp.com/entries')
     .then(response => response.json())

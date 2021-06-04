@@ -47,4 +47,10 @@ router.setState = function() {
     document.querySelector('body').classList.add('settings')
     console.log('Changed to settings body')
   }
+  else if (location.hash == '') {
+    heading = document.querySelector('h1')
+    heading.innerHTML = 'Journal Entries'
+    document.querySelector('body').classList.remove('settings', 'single-entry')
+    console.log('Changed to journal entries body')
+  }
 }
