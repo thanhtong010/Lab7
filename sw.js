@@ -18,16 +18,10 @@ self.addEventListener('install', function(event) {
           return cache.addAll(urlsToCache);
         })
     );
-  });
-  
-// Activating service worker (from https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim)
-self.addEventListener('activate', event => {
-    event.waitUntil(clients.claim());
-});
+}); 
 
 // Fetch requests (from https://developers.google.com/web/fundamentals/primers/service-workers)
 self.addEventListener('fetch', function(event) {
-    cache('fetching')
     event.respondWith(
       caches.match(event.request)
         .then(function(response) {
@@ -60,3 +54,8 @@ self.addEventListener('fetch', function(event) {
         })
       );
   });
+
+// Activating service worker (from https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim)
+self.addEventListener('activate', event => {
+  event.waitUntil(clients.claim());
+});
