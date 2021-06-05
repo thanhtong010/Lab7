@@ -44,6 +44,7 @@ router.setState = function() {
     heading.innerHTML = 'Settings'
     // const style = document.createElement('style')
     // style.body = 'body.settings'
+    document.querySelector('body').classList.remove('single-entry')
     document.querySelector('body').classList.add('settings')
     console.log('Changed to settings body')
   }
@@ -56,11 +57,24 @@ router.setState = function() {
   }
   // Clicked on an entry
   else {
-    // let num = location.hash.charAt(location.hash.length()-1)
-    console.log(location.hash)
+    let num = location.hash.charAt(location.hash.length-1)
     heading = document.querySelector('h1')
-    // heading.innerHTML = 'Entry ' + num
+    heading.innerHTML = 'Entry ' + num
     document.querySelector('body').classList.remove('settings')
     document.querySelector('body').classList.add('single-entry')
+    let journalEntryElement
+    document.querySelector('entry-page').parentNode.removeChild(document.querySelector('entry-page'))
+    // For loop to find the correct journal entry
+    for (let i=0; i < 10; i++) {
+      if (i == num - 1) {
+        journalEntryElement = document.querySelectorAll('journal-entry')[i]
+      }
+    }
+    let entryPage = document.createElement('entry-page')
+    document.querySelector('body').appendChild(entryPage)
+    document.querySelector('entry-page').entry = journalEntryElement.entry
+    // document.querySelector('entry-page').add(journalEntryElement.entry)
+    // document.querySelector()
+    // entryPageElement.entry = journalEntryElement.entry
   }
 }
